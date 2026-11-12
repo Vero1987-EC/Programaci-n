@@ -14,10 +14,10 @@ def eliminar_prestamo(nombre_archivo, numero_a_eliminar=None):
             lineas = f.readlines()
 
         if not lineas:
-            print("⚠️ El archivo de préstamos está vacío.")
+            print(" El archivo de préstamos está vacío.")
             return
 
-        print("\n📋 === REGISTROS ACTUALES DE PRÉSTAMOS ===")
+        print("\n === REGISTROS ACTUALES DE PRÉSTAMOS ===")
         for i, linea in enumerate(lineas, 1):
             print(f"{i}. {linea.strip()}")
 
@@ -25,7 +25,7 @@ def eliminar_prestamo(nombre_archivo, numero_a_eliminar=None):
         if numero_a_eliminar is None:
             entrada = input("\nIngrese el número de registro a eliminar: ").strip()
             if not entrada.isdigit():
-                print("❌ Error: Debe ingresar un número válido.")
+                print(" Error: Debe ingresar un número válido.")
                 return
             numero_a_eliminar = int(entrada)
 
@@ -37,12 +37,12 @@ def eliminar_prestamo(nombre_archivo, numero_a_eliminar=None):
             with open(nombre_archivo, "w", encoding="utf-8") as f:
                 f.writelines(lineas)
                 
-            print(f"\n✅ ¡Éxito! Se eliminó el registro: '{eliminado.strip()}'")
+            print(f"\n ¡Éxito! Se eliminó el registro: '{eliminado.strip()}'")
         else:
-            print(f"\n❌ Error: El registro número {numero_a_eliminar} no existe.")
+            print(f"\n Error: El registro número {numero_a_eliminar} no existe.")
 
     except FileNotFoundError:
-        print(f"❌ Error: El archivo '{nombre_archivo}' no existe.")
+        print(f" Error: El archivo '{nombre_archivo}' no existe.")
 
 if __name__ == "__main__":
     # Probamos eliminando directamente el registro 1 para verificar que todo funcione sin pedir datos por consola
